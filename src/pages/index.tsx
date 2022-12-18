@@ -5,7 +5,7 @@ import {
   wordlists,
 } from "bip39";
 import type { NextPage } from "next";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const options = [
   "english",
@@ -39,7 +39,7 @@ const Home: NextPage = () => {
     setDefaultWordlist(language);
   }, [language]);
 
-  const updateLanguage = (e) => {
+  const updateLanguage = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setLanguage(e.target.value);
   };
   return (
@@ -55,7 +55,11 @@ const Home: NextPage = () => {
           id="language"
         >
           {options.map((item) => {
-            return <option value={item}>{item}</option>;
+            return (
+              <option key={item} value={item}>
+                {item}
+              </option>
+            );
           })}
         </select>
       </div>
