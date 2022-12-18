@@ -6,6 +6,7 @@ import {
 } from "bip39";
 import type { NextPage } from "next";
 import React, { useEffect, useState } from "react";
+import SeedPhraseWord from "../components/SeedPhraseWord";
 
 const options = [
   "english",
@@ -24,7 +25,7 @@ const Home: NextPage = () => {
   const [language, setLanguage] = useState("english");
   const generateBIP = () => {
     const newSeedPhrase = generateMnemonic();
-    console.log(newSeedPhrase);
+
     setSeedPhrase(newSeedPhrase);
   };
 
@@ -72,46 +73,11 @@ const Home: NextPage = () => {
       <br />
 
       <br />
-      {seedPhrase
-        .split(" ")
-        .map((item) => {
-          return (
-            (wordlist?.findIndex((element) => element === item) as number) + 1
-          );
-        })
-        .join(" ")}
-      <svg
-        id="svgBraille"
-        xmlns="http://www.w3.org/2000/svg"
-        width="100%"
-        height="100%"
-      >
-        <circle fill="#6666FF" cx="25" cy="20" r="3.2"></circle>
-        <circle fill="#6666FF" cx="81" cy="20" r="3.2"></circle>
-        <circle fill="#6666FF" cx="81" cy="30" r="3.2"></circle>
-        <circle fill="#6666FF" cx="137" cy="20" r="3.2"></circle>
-        <circle fill="#6666FF" cx="147" cy="20" r="3.2"></circle>
-        <circle fill="#6666FF" cx="193" cy="20" r="3.2"></circle>
-        <circle fill="#6666FF" cx="203" cy="20" r="3.2"></circle>
-        <circle fill="#6666FF" cx="203" cy="30" r="3.2"></circle>
-        <circle fill="#6666FF" cx="249" cy="20" r="3.2"></circle>
-        <circle fill="#6666FF" cx="259" cy="30" r="3.2"></circle>
-        <circle fill="#6666FF" cx="305" cy="20" r="3.2"></circle>
-        <circle fill="#6666FF" cx="305" cy="30" r="3.2"></circle>
-        <circle fill="#6666FF" cx="315" cy="20" r="3.2"></circle>
-        <circle fill="#6666FF" cx="361" cy="20" r="3.2"></circle>
-        <circle fill="#6666FF" cx="361" cy="30" r="3.2"></circle>
-        <circle fill="#6666FF" cx="371" cy="20" r="3.2"></circle>
-        <circle fill="#6666FF" cx="371" cy="30" r="3.2"></circle>
-        <circle fill="#6666FF" cx="417" cy="20" r="3.2"></circle>
-        <circle fill="#6666FF" cx="417" cy="30" r="3.2"></circle>
-        <circle fill="#6666FF" cx="427" cy="30" r="3.2"></circle>
-        <circle fill="#6666FF" cx="473" cy="30" r="3.2"></circle>
-        <circle fill="#6666FF" cx="483" cy="20" r="3.2"></circle>
-        <circle fill="#6666FF" cx="529" cy="30" r="3.2"></circle>
-        <circle fill="#6666FF" cx="539" cy="20" r="3.2"></circle>
-        <circle fill="#6666FF" cx="539" cy="30" r="3.2"></circle>
-      </svg>
+      <div className="mx-10 grid grid-cols-4 gap-x-4 gap-y-4">
+        {seedPhrase.split(" ").map((item) => {
+          return <SeedPhraseWord word={item} wordlist={wordlist as string[]} />;
+        })}
+      </div>
     </div>
   );
 };
