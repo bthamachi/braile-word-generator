@@ -74,8 +74,14 @@ const Home: NextPage = () => {
 
       <br />
       <div className="mx-10 grid grid-cols-4 gap-x-4 gap-y-4">
-        {seedPhrase.split(" ").map((item) => {
-          return <SeedPhraseWord word={item} wordlist={wordlist as string[]} />;
+        {seedPhrase.split(" ").map((item, idx) => {
+          return (
+            <SeedPhraseWord
+              key={idx}
+              word={item}
+              wordlist={wordlist as string[]}
+            />
+          );
         })}
       </div>
     </div>
