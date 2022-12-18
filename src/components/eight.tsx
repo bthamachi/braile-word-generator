@@ -6,7 +6,7 @@ const Eight = () => {
           cx="15"
           cy="59"
           r="12.5"
-          fill="black"
+          fill="white"
           stroke="black"
           strokeWidth="5"
         />
@@ -14,7 +14,7 @@ const Eight = () => {
           cx="15"
           cy="15"
           r="12.5"
-          fill="black"
+          fill="white"
           stroke="black"
           strokeWidth={5}
         />
@@ -24,7 +24,7 @@ const Eight = () => {
           cy="59"
           r="12.5"
           stroke="black"
-          fill="black"
+          fill="white"
           strokeWidth={5}
         />
       </svg>

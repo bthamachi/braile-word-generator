@@ -6,7 +6,7 @@ const Six = () => {
           cx="15"
           cy="59"
           r="12.5"
-          fill="black"
+          fill="white"
           stroke="black"
           strokeWidth="5"
         />
@@ -14,7 +14,7 @@ const Six = () => {
           cx="15"
           cy="15"
           r="12.5"
-          fill="black"
+          fill="white"
           stroke="black"
           strokeWidth={5}
         />
@@ -22,7 +22,7 @@ const Six = () => {
           cx="53"
           cy="15"
           r="12.5"
-          fill="black"
+          fill="white"
           stroke="black"
           strokeWidth="5"
         />

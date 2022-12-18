@@ -7,7 +7,7 @@ const One = () => {
           cx="15"
           cy="15"
           r="12.5"
-          fill="black"
+          fill="white"
           stroke="black"
           strokeWidth="5"
         />

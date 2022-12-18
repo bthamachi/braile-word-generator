@@ -5,7 +5,7 @@ const Nine = () => {
         <circle
           cx="15"
           cy="59"
-          fill="black"
+          fill="white"
           r="12.5"
           stroke="black"
           strokeWidth="5"
@@ -14,7 +14,7 @@ const Nine = () => {
         <circle
           cx="53"
           cy="15"
-          fill="black"
+          fill="white"
           r="12.5"
           stroke="black"
           strokeWidth="5"

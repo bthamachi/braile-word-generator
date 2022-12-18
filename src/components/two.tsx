@@ -7,7 +7,7 @@ const Two = () => {
           cx="15"
           cy="15"
           r="12.5"
-          fill="black"
+          fill="white"
           stroke="black"
           stroke-width="5"
         />
@@ -15,7 +15,7 @@ const Two = () => {
           cx="15"
           cy="59"
           r="12.5"
-          fill="black"
+          fill="white"
           stroke="black"
           stroke-width="5"
         />

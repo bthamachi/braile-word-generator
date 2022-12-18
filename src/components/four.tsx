@@ -7,7 +7,7 @@ const Four = () => {
           cx="15"
           cy="15"
           r="12.5"
-          fill="black"
+          fill="whites"
           stroke="black"
           stroke-width="5"
         />
@@ -15,7 +15,7 @@ const Four = () => {
           cx="53"
           cy="15"
           r="12.5"
-          fill="black"
+          fill="whites"
           stroke="black"
           stroke-width="5"
         />
@@ -23,7 +23,7 @@ const Four = () => {
           cx="53"
           cy="59"
           r="12.5"
-          fill="black"
+          fill="whites"
           stroke="black"
           stroke-width="5"
         />
