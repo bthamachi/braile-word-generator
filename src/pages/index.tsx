@@ -53,11 +53,11 @@ const Home: NextPage = () => {
       </div>
       <br />
       <h1>QR Codes</h1>
-      <p>Private Key</p>
+      {/* <p>Private Key</p>
       <QRCode value={privateKey} />
-      <br />
+      <br /> */}
       <p>Public Key</p>
-      <QRCode value={publicKey} />
+      <QRCode value={seedPhrase} />
     </div>
   );
 };
