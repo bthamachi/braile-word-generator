@@ -30,11 +30,6 @@ const Home: NextPage = () => {
   };
 
   const wordlist = wordlists[getDefaultWordlist()];
-  console.log(
-    seedPhrase.split(" ").map((item) => {
-      return wordlist?.findIndex((element) => element === item);
-    })
-  );
 
   useEffect(() => {
     setDefaultWordlist(language);
@@ -78,6 +73,7 @@ const Home: NextPage = () => {
           seedPhrase.split(" ").map((item, idx) => {
             return (
               <SeedPhraseWord
+                index={idx}
                 key={idx}
                 word={item}
                 wordlist={wordlist as string[]}
