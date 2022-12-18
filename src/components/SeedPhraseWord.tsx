@@ -1,3 +1,4 @@
+import { ethers } from "ethers";
 import SeedPhraseWordBraile from "./SeedPhraseWordBraile";
 
 type SeedPhraseWordProps = {
@@ -7,7 +8,7 @@ type SeedPhraseWordProps = {
 };
 
 const SeedPhraseWord = ({ word, wordlist, index }: SeedPhraseWordProps) => {
-  const idx = (wordlist.findIndex((element) => element === word) as number) + 1;
+  const idx = (ethers.wordlists.en?.getWordIndex(word) as number) + 1;
   const paddedIdx = idx.toString().padStart(4, "0");
   return (
     <div>

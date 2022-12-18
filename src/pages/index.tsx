@@ -1,70 +1,40 @@
-import {
-  generateMnemonic,
-  getDefaultWordlist,
-  setDefaultWordlist,
-  wordlists,
-} from "bip39";
+import { getDefaultWordlist, wordlists } from "bip39";
+import { ethers } from "ethers";
 import type { NextPage } from "next";
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
+import QRCode from "react-qr-code";
 import SeedPhraseWord from "../components/SeedPhraseWord";
-
-const options = [
-  "english",
-  "japanese",
-  "spanish",
-  "italian",
-  "french",
-  "korean",
-  "czech",
-  "portuguese",
-  "chinese_traditional",
-];
 
 const Home: NextPage = () => {
   const [seedPhrase, setSeedPhrase] = useState("");
-  const [language, setLanguage] = useState("english");
-  const generateBIP = () => {
-    const newSeedPhrase = generateMnemonic();
+  const [walletAddress, setWalletAddress] = useState("");
+  const [privateKey, setPrivateKey] = useState("");
+  const [publicKey, setPublicKey] = useState("");
 
-    setSeedPhrase(newSeedPhrase);
+  const generateBIP = () => {
+    const wallet = ethers.Wallet.createRandom();
+
+    setSeedPhrase(wallet._mnemonic().phrase);
+    setWalletAddress(wallet.address);
+    setPrivateKey(wallet.privateKey);
+    setPublicKey(wallet.publicKey);
   };
 
   const wordlist = wordlists[getDefaultWordlist()];
 
-  useEffect(() => {
-    setDefaultWordlist(language);
-  }, [language]);
-
-  const updateLanguage = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setLanguage(e.target.value);
-  };
   return (
     <div className="mx-4 mt-4">
-      <div>
-        <label htmlFor="language">
-          Select Language To Generate Seed Phrase In
-        </label>
-        <br />
-        <select
-          value={language}
-          onChange={(e) => updateLanguage(e)}
-          id="language"
-        >
-          {options.map((item) => {
-            return (
-              <option key={item} value={item}>
-                {item}
-              </option>
-            );
-          })}
-        </select>
-      </div>
-
       <button className="bg-blue-400 px-2 py-2" onClick={() => generateBIP()}>
-        Generate Seed Phrase in {language}
+        Generate Seed Phrase
       </button>
       <br />
-      {seedPhrase}
+      <p>Details Of Generated Wallet</p>
+      <div className="mt-4 grid max-w-md  grid-cols-1  gap-y-4  break-words">
+        <p>Private Key : {privateKey}</p>
+        <p>Public Key : {publicKey}</p>
+        <p>Address : {walletAddress}</p>
+      </div>
+
       <br />
 
       <br />
@@ -81,6 +51,13 @@ const Home: NextPage = () => {
             );
           })}
       </div>
+      <br />
+      <h1>QR Codes</h1>
+      <p>Private Key</p>
+      <QRCode value={privateKey} />
+      <br />
+      <p>Public Key</p>
+      <QRCode value={publicKey} />
     </div>
   );
 };
