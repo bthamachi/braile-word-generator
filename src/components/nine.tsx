@@ -10,7 +10,7 @@ const Nine = () => {
           stroke="black"
           strokeWidth="5"
         />
-        <circle cx="15" cy="15" r="12.5" stroke="black" strokeWidth={5} />
+        <circle cx="15" cy="15" r="12.5" stroke="white" strokeWidth={5} />
         <circle
           cx="53"
           cy="15"
@@ -19,7 +19,7 @@ const Nine = () => {
           stroke="black"
           strokeWidth="5"
         />
-        <circle cx="53" cy="59" r="12.5" stroke="black" strokeWidth={5} />
+        <circle cx="53" cy="59" r="12.5" stroke="white" strokeWidth={5} />
       </svg>
     </div>
   );

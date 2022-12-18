@@ -26,7 +26,7 @@ const Six = () => {
           stroke="black"
           strokeWidth="5"
         />
-        <circle cx="53" cy="59" r="12.5" stroke="black" strokeWidth={5} />
+        <circle cx="53" cy="59" r="12.5" stroke="white" strokeWidth={5} />
       </svg>
     </div>
   );

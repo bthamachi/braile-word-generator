@@ -10,7 +10,7 @@ const Zero = () => {
           stroke="black"
           strokeWidth="5"
         />
-        <circle cx="15" cy="15" r="12.5" stroke="black" strokeWidth={5} />
+        <circle cx="15" cy="15" r="12.5" stroke="white" strokeWidth={5} />
         <circle
           cx="53"
           cy="15"
