@@ -1,65 +1,88 @@
-import { getDefaultWordlist, wordlists } from "bip39";
-import { ethers } from "ethers";
-import type { NextPage } from "next";
-import { useState } from "react";
-import QRCode from "react-qr-code";
-import SeedPhraseWord from "../components/SeedPhraseWord";
+import Blog from "../components/Blog";
+import CTA from "../components/CTA";
+import FeatureList from "../components/FeatureList";
+import FeatureWIthScreenshot from "../components/FeatureWIthScreenshot";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import HeroSection from "../components/HeroSection";
+import Testimonial from "../components/Testimonial";
 
-const Home: NextPage = () => {
-  const [seedPhrase, setSeedPhrase] = useState("");
-  const [walletAddress, setWalletAddress] = useState("");
-  const [privateKey, setPrivateKey] = useState("");
-  const [publicKey, setPublicKey] = useState("");
+const blogPosts = [
+  {
+    id: 1,
+    title: "Boost your conversion rate",
+    href: "#",
+    date: "Mar 16, 2020",
+    datetime: "2020-03-16",
+    category: { name: "Article", href: "#" },
+    imageUrl:
+      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80",
+    preview:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium praesentium eius, ut atque fuga culpa, similique sequi cum eos quis dolorum.",
+    author: {
+      name: "Roel Aufderehar",
+      imageUrl:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      href: "#",
+    },
+    readingLength: "6 min",
+  },
+  {
+    id: 2,
+    title: "How to use search engine optimization to drive sales",
+    href: "#",
+    date: "Mar 10, 2020",
+    datetime: "2020-03-10",
+    category: { name: "Video", href: "#" },
+    imageUrl:
+      "https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80",
+    preview:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit facilis asperiores porro quaerat doloribus, eveniet dolore. Adipisci tempora aut inventore optio animi., tempore temporibus quo laudantium.",
+    author: {
+      name: "Brenna Goyette",
+      imageUrl:
+        "https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      href: "#",
+    },
+    readingLength: "4 min",
+  },
+  {
+    id: 3,
+    title: "Improve your customer experience",
+    href: "#",
+    date: "Feb 12, 2020",
+    datetime: "2020-02-12",
+    category: { name: "Case Study", href: "#" },
+    imageUrl:
+      "https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80",
+    preview:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint harum rerum voluptatem quo recusandae magni placeat saepe molestiae, sed excepturi cumque corporis perferendis hic.",
+    author: {
+      name: "Daniela Metz",
+      imageUrl:
+        "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      href: "#",
+    },
+    readingLength: "11 min",
+  },
+];
 
-  const generateBIP = () => {
-    const wallet = ethers.Wallet.createRandom();
-
-    setSeedPhrase(wallet._mnemonic().phrase);
-    setWalletAddress(wallet.address);
-    setPrivateKey(wallet.privateKey);
-    setPublicKey(wallet.publicKey);
-  };
-
-  const wordlist = wordlists[getDefaultWordlist()];
-
+export default function Example() {
   return (
-    <div className="mx-4 mt-4">
-      <button className="bg-blue-400 px-2 py-2" onClick={() => generateBIP()}>
-        Generate Seed Phrase
-      </button>
-      <br />
-      <p>Details Of Generated Wallet</p>
-      <div className="mt-4 grid max-w-md  grid-cols-1  gap-y-4  break-words">
-        <p>Private Key : {privateKey}</p>
-        <p>Public Key : {publicKey}</p>
-        <p>Address : {walletAddress}</p>
+    <div className="bg-white">
+      <div className="relative overflow-hidden">
+        <Header />
+        <main>
+          <HeroSection />
+          <FeatureWIthScreenshot />
+          {/* Feature section with grid */}
+          <FeatureList />
+          <Testimonial />
+          <Blog />
+          <CTA />
+        </main>
+        <Footer />
       </div>
-
-      <br />
-
-      <br />
-      <div className="mx-2 grid grid-cols-2 gap-x-4 gap-y-4 md:mx-10 md:grid-cols-4">
-        {seedPhrase.length > 0 &&
-          seedPhrase.split(" ").map((item, idx) => {
-            return (
-              <SeedPhraseWord
-                index={idx}
-                key={idx}
-                word={item}
-                wordlist={wordlist as string[]}
-              />
-            );
-          })}
-      </div>
-      <br />
-      <h1>QR Codes</h1>
-      {/* <p>Private Key</p>
-      <QRCode value={privateKey} />
-      <br /> */}
-      <p>Seed Phrase as QR Code</p>
-      <QRCode value={seedPhrase} />
     </div>
   );
-};
-
-export default Home;
+}
