@@ -1,7 +1,7 @@
 const blogPosts = [
   {
     id: 1,
-    title: "Boost your conversion rate",
+    title: "Why use a hardware wallet?",
     href: "#",
     date: "Mar 16, 2020",
     datetime: "2020-03-16",
@@ -9,7 +9,7 @@ const blogPosts = [
     imageUrl:
       "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80",
     preview:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium praesentium eius, ut atque fuga culpa, similique sequi cum eos quis dolorum.",
+      "Most people recommend an online wallet such as metamask - but why do you want to migrate away from them?",
     author: {
       name: "Roel Aufderehar",
       imageUrl:

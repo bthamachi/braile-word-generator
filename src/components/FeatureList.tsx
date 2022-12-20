@@ -9,39 +9,38 @@ import {
 
 const features = [
   {
-    name: "Push to Deploy",
+    name: "Privacy by Default",
     description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi vitae lobortis.",
+      "We don't store any identifying information - only an anonymous email of your choice",
     icon: CloudArrowUpIcon,
   },
   {
-    name: "SSL Certificates",
+    name: "Community Verified Algorithms",
     description:
-      "Qui aut temporibus nesciunt vitae dicta repellat sit dolores pariatur. Temporibus qui illum aut.",
+      "Generate truly pseudo-random mnemonics with the latest in cryptography research",
     icon: LockClosedIcon,
   },
   {
-    name: "Simple Queues",
-    description:
-      "Rerum quas incidunt deleniti quaerat suscipit mollitia. Amet repellendus ut odit dolores qui.",
+    name: "Unlimited Uses",
+    description: "Generate as many wallets as you'd like with a single license",
     icon: ArrowPathIcon,
   },
   {
-    name: "Advanced Security",
+    name: "Offline Generation supported",
     description:
-      "Ullam laboriosam est voluptatem maxime ut mollitia commodi. Et dignissimos suscipit perspiciatis.",
+      "All the code runs locally in your browser - feel free to disable internet access and generate your keys",
     icon: ShieldCheckIcon,
   },
   {
-    name: "Powerful API",
+    name: "Easy Configuration",
     description:
-      "Ab a facere voluptatem in quia corrupti veritatis aliquam. Veritatis labore quaerat ipsum quaerat id.",
+      "Get started on using your new wallet immediately - we provide an easy way to generate QR codes and braille equivalents for your wallets. ",
     icon: CogIcon,
   },
   {
-    name: "Database Backups",
+    name: "Withstand the test of time",
     description:
-      "Quia qui et est officia cupiditate qui consectetur. Ratione similique et impedit ea ipsum et.",
+      "No existing provider out there integrates natively with braille, that's a big security risk out of your mind",
     icon: ServerIcon,
   },
 ];

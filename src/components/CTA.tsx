@@ -20,13 +20,10 @@ const CTA = () => {
             Award winning support
           </h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            We’re here to help
+            We&apos;re here to help
           </p>
           <p className="mt-3 text-lg text-gray-300">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas
-            tempus tellus etiam sed. Quam a scelerisque amet ullamcorper eu enim
-            et fermentum, augue. Aliquet amet volutpat quisque ut interdum
-            tincidunt duis.
+            Just holler at us - we respond within 24 hours
           </p>
           <div className="mt-8">
             <div className="inline-flex rounded-md shadow">
@@ -34,7 +31,7 @@ const CTA = () => {
                 href="#"
                 className="inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-gray-900 hover:bg-gray-50"
               >
-                Visit the help center
+                Speak to someone now
                 <ArrowTopRightOnSquareIcon
                   className="-mr-1 ml-3 h-5 w-5 text-gray-400"
                   aria-hidden="true"

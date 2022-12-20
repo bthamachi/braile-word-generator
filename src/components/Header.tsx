@@ -1,130 +1,126 @@
 import { Popover, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
+import Image from "next/image";
 import { Fragment } from "react";
 
-const navigation = [
-  { name: "Product", href: "#" },
-  { name: "Features", href: "#" },
-  { name: "Marketplace", href: "#" },
-  { name: "Company", href: "#" },
+const options = [
+  {
+    name: "Features",
+    link: "#Features",
+  },
+  {
+    name: "Blog",
+    link: "/blog",
+  },
+  {
+    name: "About",
+    link: "/about-us",
+  },
 ];
 
 const Header = () => {
   return (
-    <Popover as="header" className="relative">
-      <div className="bg-gray-900 pt-6">
-        <nav
-          className="relative mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6"
-          aria-label="Global"
-        >
-          <div className="flex flex-1 items-center">
-            <div className="flex w-full items-center justify-between md:w-auto">
-              <a href="#">
-                <span className="sr-only">Your Company</span>
-                <img
-                  className="h-8 w-auto sm:h-10"
-                  src="https://tailwindui.com/img/logos/mark.svg?from-color=teal&from-shade=200&to-color=cyan&to-shade=400&toShade=400"
-                  alt=""
-                />
-              </a>
-              <div className="-mr-2 flex items-center md:hidden">
-                <Popover.Button className="focus-ring-inset inline-flex items-center justify-center rounded-md bg-gray-900 p-2 text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-white">
-                  <span className="sr-only">Open main menu</span>
-                  <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-                </Popover.Button>
-              </div>
-            </div>
-            <div className="hidden space-x-8 md:ml-10 md:flex">
-              {navigation.map((item) => (
+    <header>
+      <Popover className="relative bg-white">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-6 sm:px-6 md:justify-start md:space-x-10 lg:px-8">
+          <div className="flex justify-start lg:w-0 lg:flex-1">
+            <a href="#">
+              <span className="sr-only">GM Anon</span>
+              <Image src="/logo.png" height={20} width={100} />
+            </a>
+          </div>
+          <div className="-my-2 -mr-2 md:hidden">
+            <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+              <span className="sr-only">Open menu</span>
+              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            </Popover.Button>
+          </div>
+          <Popover.Group as="nav" className="hidden space-x-10 md:flex">
+            {options.map((item) => {
+              return (
                 <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-base font-medium text-white hover:text-gray-300"
+                  key={item.link}
+                  href={item.link}
+                  className="text-base font-medium text-gray-500 hover:text-gray-900"
                 >
                   {item.name}
                 </a>
-              ))}
-            </div>
-          </div>
-          <div className="hidden md:flex md:items-center md:space-x-6">
+              );
+            })}
+          </Popover.Group>
+          <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
             <a
               href="#"
-              className="text-base font-medium text-white hover:text-gray-300"
+              className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 text-base font-medium text-white shadow-sm hover:from-purple-700 hover:to-indigo-700"
             >
-              Log in
-            </a>
-            <a
-              href="#"
-              className="inline-flex items-center rounded-md border border-transparent bg-gray-600 px-4 py-2 text-base font-medium text-white hover:bg-gray-700"
-            >
-              Start free trial
+              Open App
             </a>
           </div>
-        </nav>
-      </div>
+        </div>
 
-      <Transition
-        as={Fragment}
-        enter="duration-150 ease-out"
-        enterFrom="opacity-0 scale-95"
-        enterTo="opacity-100 scale-100"
-        leave="duration-100 ease-in"
-        leaveFrom="opacity-100 scale-100"
-        leaveTo="opacity-0 scale-95"
-      >
-        <Popover.Panel
-          focus
-          className="absolute inset-x-0 top-0 origin-top transform p-2 transition md:hidden"
+        <Transition
+          as={Fragment}
+          enter="duration-200 ease-out"
+          enterFrom="opacity-0 scale-95"
+          enterTo="opacity-100 scale-100"
+          leave="duration-100 ease-in"
+          leaveFrom="opacity-100 scale-100"
+          leaveTo="opacity-0 scale-95"
         >
-          <div className="overflow-hidden rounded-lg bg-white shadow-md ring-1 ring-black ring-opacity-5">
-            <div className="flex items-center justify-between px-5 pt-4">
-              <div>
-                <img
-                  className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?from-color=teal&from-shade=500&to-color=cyan&to-shade=600&toShade=600"
-                  alt=""
-                />
+          <Popover.Panel
+            focus
+            className="absolute inset-x-0 top-0 z-30 origin-top-right transform p-2 transition md:hidden"
+          >
+            <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+              <div className="px-5 pt-5 pb-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <Image src="/logo.png" height={20} width={100} />
+                  </div>
+                  <div className="-mr-2">
+                    <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                      <span className="sr-only">Close menu</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </Popover.Button>
+                  </div>
+                </div>
+                <div className="mt-6">
+                  <nav className="grid grid-cols-1 gap-7">
+                    {options.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.link}
+                        className="-m-3 flex items-center rounded-lg p-3 hover:bg-gray-50"
+                      >
+                        <div className="ml-4 text-base font-medium text-gray-900">
+                          {item.name}
+                        </div>
+                      </a>
+                    ))}
+                  </nav>
+                </div>
               </div>
-              <div className="-mr-2">
-                <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-600">
-                  <span className="sr-only">Close menu</span>
-                  <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                </Popover.Button>
-              </div>
-            </div>
-            <div className="pt-5 pb-6">
-              <div className="space-y-1 px-2">
-                {navigation.map((item) => (
+              <div className="py-6 px-5">
+                <div className="mt-6">
                   <a
-                    key={item.name}
-                    href={item.href}
-                    className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-50"
+                    href="#"
+                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 text-base font-medium text-white shadow-sm hover:from-purple-700 hover:to-indigo-700"
                   >
-                    {item.name}
+                    Start Your Free Trial Today
                   </a>
-                ))}
-              </div>
-              <div className="mt-6 px-5">
-                <a
-                  href="#"
-                  className="block w-full rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 py-3 px-4 text-center font-medium text-white shadow hover:from-teal-600 hover:to-cyan-700"
-                >
-                  Start free trial
-                </a>
-              </div>
-              <div className="mt-6 px-5">
-                <p className="text-center text-base font-medium text-gray-500">
-                  Existing customer?{" "}
-                  <a href="#" className="text-gray-900 hover:underline">
-                    Login
-                  </a>
-                </p>
+                  <p className="mt-6 text-center text-base font-medium text-gray-500">
+                    Existing customer?
+                    <a href="#" className="mx-2 text-gray-900">
+                      Sign in
+                    </a>
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        </Popover.Panel>
-      </Transition>
-    </Popover>
+          </Popover.Panel>
+        </Transition>
+      </Popover>
+    </header>
   );
 };
 

@@ -1,64 +1,34 @@
 const HeroSection = () => {
   return (
-    <div className="bg-gray-900 pt-10 sm:pt-16 lg:overflow-hidden lg:pt-8 lg:pb-14">
-      <div className="mx-auto max-w-7xl lg:px-8">
-        <div className="lg:grid lg:grid-cols-2 lg:gap-8">
-          <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:flex lg:items-center lg:px-0 lg:text-left">
-            <div className="lg:py-24">
-              <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
-                <span className="block">A better way to</span>
-                <span className="block bg-gradient-to-r from-teal-200 to-cyan-400 bg-clip-text pb-3 text-transparent sm:pb-5">
-                  ship web apps
-                </span>
-              </h1>
-              <p className="text-base text-gray-300 sm:text-xl lg:text-lg xl:text-xl">
-                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-                Lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-                fugiat.
-              </p>
-              <div className="mt-10 sm:mt-12">
-                <form action="#" className="sm:mx-auto sm:max-w-xl lg:mx-0">
-                  <div className="sm:flex">
-                    <div className="min-w-0 flex-1">
-                      <label htmlFor="email" className="sr-only">
-                        Email address
-                      </label>
-                      <input
-                        id="email"
-                        type="email"
-                        placeholder="Enter your email"
-                        className="block w-full rounded-md border-0 px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
-                      />
-                    </div>
-                    <div className="mt-3 sm:mt-0 sm:ml-3">
-                      <button
-                        type="submit"
-                        className="block w-full rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 py-3 px-4 font-medium text-white shadow hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
-                      >
-                        Start free trial
-                      </button>
-                    </div>
-                  </div>
-                  <p className="mt-3 text-sm text-gray-300 sm:mt-4">
-                    Start your free 14-day trial, no credit card necessary. By
-                    providing your email, you agree to our{" "}
-                    <a href="#" className="font-medium text-white">
-                      terms of service
-                    </a>
-                    .
-                  </p>
-                </form>
+    <div className="relative">
+      <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="relative  sm:overflow-hidden ">
+          <div className="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
+            <h1 className="text-center text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+              <span className="block text-gray-800">Not Your Keys</span>
+              <span className="block font-extrabold text-black underline">
+                Not Your Coins
+              </span>
+            </h1>
+            <p className="mx-auto mt-6 max-w-lg text-center text-lg text-gray-600 sm:max-w-3xl">
+              Generate unlimited self-custodial wallets with a single click -
+              Offline and Online
+            </p>
+            <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center">
+              <div className="space-y-4 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5 sm:space-y-0">
+                <a
+                  href="#"
+                  className="flex items-center justify-center px-4 py-3 text-base font-medium text-indigo-700 sm:px-8"
+                >
+                  Get started
+                </a>
+                <a
+                  href="#"
+                  className="flex items-center justify-center rounded-md border border-transparent bg-indigo-500 bg-opacity-60 px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-opacity-70 sm:px-8"
+                >
+                  Start Your Free Trial
+                </a>
               </div>
-            </div>
-          </div>
-          <div className="mt-12 -mb-16 sm:-mb-48 lg:relative lg:m-0">
-            <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0">
-              {/* Illustration taken from Lucid Illustrations: https://lucid.pixsellz.io/ */}
-              <img
-                className="w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
-                src="https://tailwindui.com/img/component-images/cloud-illustration-teal-cyan.svg"
-                alt=""
-              />
             </div>
           </div>
         </div>
