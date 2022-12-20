@@ -3,7 +3,7 @@ import { ChangeEvent, useState } from "react";
 import "../styles/globals.css";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
-  const [unlocked, setUnlocked] = useState(false);
+  const [unlocked, setUnlocked] = useState(true);
   const [password, setPassword] = useState("");
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

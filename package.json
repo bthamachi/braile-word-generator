@@ -23,6 +23,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-qr-code": "^2.0.11",
+    "tiny-secp256k1": "^2.2.1",
     "zod": "^3.18.0"
   },
   "devDependencies": {

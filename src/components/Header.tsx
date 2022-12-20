@@ -1,6 +1,7 @@
 import { Popover, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
+import Link from "next/link";
 import { Fragment } from "react";
 
 const options = [
@@ -49,12 +50,11 @@ const Header = () => {
             })}
           </Popover.Group>
           <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
-            <a
-              href="#"
-              className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 text-base font-medium text-white shadow-sm hover:from-purple-700 hover:to-indigo-700"
-            >
-              Open App
-            </a>
+            <Link href="/app">
+              <span className="ml-8 inline-flex cursor-pointer items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 text-base font-medium text-white shadow-sm hover:from-purple-700 hover:to-indigo-700">
+                Open App
+              </span>
+            </Link>
           </div>
         </div>
 
@@ -102,12 +102,12 @@ const Header = () => {
               </div>
               <div className="py-6 px-5">
                 <div className="mt-6">
-                  <a
-                    href="#"
+                  <Link
+                    href="/app"
                     className="flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 text-base font-medium text-white shadow-sm hover:from-purple-700 hover:to-indigo-700"
                   >
                     Start Your Free Trial Today
-                  </a>
+                  </Link>
                   <p className="mt-6 text-center text-base font-medium text-gray-500">
                     Existing customer?
                     <a href="#" className="mx-2 text-gray-900">
