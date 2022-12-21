@@ -82,8 +82,8 @@ const Home: NextPage = () => {
 
     // // var svgAsText = new XMLSerializer().serializeToString(One);
     // // doc.addSvgAsImage(svgAsText, 2.1, 4, 0.5, 0.5);
-
-    doc.save("test2.pdf");
+    console.log("---pass typecheck");
+    // doc.save("test2.pdf");
   };
 
   return (

@@ -1,6 +1,8 @@
 import { BIP32Interface } from "bip32";
-import { getDefaultWordlist } from "bip39";
-import { ethers, wordlists } from "ethers";
+
+import { getDefaultWordlist, wordlists } from "bip39";
+
+import { ethers } from "ethers";
 import * as htmlToImage from "html-to-image";
 import jsPDF from "jspdf";
 import { useState } from "react";
