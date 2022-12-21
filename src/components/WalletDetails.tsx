@@ -5,8 +5,12 @@ import {
 } from "@heroicons/react/20/solid";
 import { BIP32Interface } from "bip32";
 import { payments } from "bitcoinjs-lib";
+import ECPairFactory from "ecpair";
 import { ethers } from "ethers";
 import { useEffect, useState } from "react";
+import * as ecc from "tiny-secp256k1";
+
+const ECPair = ECPairFactory(ecc);
 
 const networkTabs = ["Ethereum", "Bitcoin"];
 
@@ -33,11 +37,13 @@ const WalletDetails = ({ ethWallet, btcWallet }: WalletDetailsProps) => {
         const privateKeyBuffer = btcWallet.privateKey;
         const publicKeyBuffer = btcWallet.publicKey;
 
-        setPrivateKey(privateKeyBuffer?.toString("hex") as string);
+        setPrivateKey(btcWallet.toWIF());
         setPublicKey(publicKeyBuffer?.toString("hex") as string);
 
+        const keyPair = ECPair.fromWIF(btcWallet.toWIF());
+
         setWalletAddress(
-          payments.p2pkh({ pubkey: publicKeyBuffer }).address as string
+          payments.p2pkh({ pubkey: keyPair.publicKey }).address as string
         );
         return;
       }
