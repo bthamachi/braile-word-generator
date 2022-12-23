@@ -6,14 +6,15 @@ import { ethers } from "ethers";
 import * as htmlToImage from "html-to-image";
 import jsPDF from "jspdf";
 import { useState } from "react";
-import QRCode from "react-qr-code";
 import { ClipLoader } from "react-spinners";
 import { toast } from "react-toastify";
 import { generateBtcWallet, generateRandomWallet } from "../lib/crypto";
+import { calculateAspectRatioFit } from "../lib/img";
+import DesktopWalletPDF from "./DesktopWalletPDF";
 import FeedItem from "./FeedItem";
+import MobileWalletPdf from "./MobileWalletPdf";
 import QRCodeGenerator from "./QRCodeGenerator";
 import SeedPhraseToBraille from "./SeedPhraseToBraille";
-import SeedPhraseWord from "./SeedPhraseWord";
 import WalletDetails from "./WalletDetails";
 
 const Feed = () => {
@@ -24,13 +25,90 @@ const Feed = () => {
 
   const [generatingSeedPhrase, setGeneratingSeedPhrase] = useState(false);
 
+  // TODO: Generate Mobile Image
+  const generateMobileImage = async () => {
+    const doc = new jsPDF("p", "px", [794, 1123]);
+    const height = doc.internal.pageSize.height;
+    const width = doc.internal.pageSize.width;
+
+    const secretPhraseColumnElement = document.getElementById("braille")!;
+    const secretPhraseImage = await htmlToImage.toJpeg(
+      secretPhraseColumnElement,
+      {
+        quality: 1,
+      }
+    );
+    const secretPhraseWidth = secretPhraseColumnElement.clientWidth;
+    const secretPhraseHeight = secretPhraseColumnElement.clientHeight;
+
+    const { width: newWidth, height: newHeight } = calculateAspectRatioFit(
+      secretPhraseWidth!,
+      secretPhraseHeight!,
+      300,
+      900
+    );
+
+    const QRCodeElement = document.getElementById("secretPhrase")!;
+    const QRCodeElementImage = await htmlToImage.toJpeg(QRCodeElement, {
+      quality: 1,
+    });
+
+    const QRCodeElementWidth = QRCodeElement.clientWidth;
+    const QRCodeElementHeight = QRCodeElement.clientHeight;
+
+    const { width: newQRWidth, height: newQRHeight } = calculateAspectRatioFit(
+      QRCodeElementWidth!,
+      QRCodeElementHeight!,
+      300,
+      300
+    );
+
+    const gap = 20;
+    const combinedWidth = newQRWidth + newWidth + gap;
+    const startX = Math.floor((width - combinedWidth) / 2);
+
+    const longerElement = Math.max(newQRHeight, newHeight);
+    const startY = Math.floor((height - longerElement) / 2);
+
+    doc.addImage(secretPhraseImage, startX, startY, newWidth, newHeight);
+    doc.addImage(
+      QRCodeElementImage,
+      startX + newWidth + gap,
+      startY,
+      newQRHeight,
+      newQRWidth
+    );
+
+    doc.save("Setup Instructions.pdf");
+  };
+
   const generateImage = async () => {
-    const doc = new jsPDF("portrait");
+    const doc = new jsPDF("p", "px", [794, 1123]);
+    const width = doc.internal.pageSize.getWidth();
+    const height = doc.internal.pageSize.getHeight();
+
     const img = await htmlToImage.toJpeg(
       document.getElementById("seedPhrase")!,
-      { quality: 100 }
+      {
+        quality: 1,
+      }
     );
-    doc.addImage(img, "JPEG", 0, 20, 250, 150);
+
+    const originalImageSize = document.getElementById("seedPhrase");
+    const imageWidth = originalImageSize?.clientWidth;
+    const imageHeight = originalImageSize?.clientHeight;
+
+    const { width: newWidth, height: newHeight } = calculateAspectRatioFit(
+      imageWidth!,
+      imageHeight!,
+      700,
+      700
+    );
+
+    const startX = Math.floor((width - newWidth) / 2);
+    const starty = Math.floor((height - newHeight) / 2);
+
+    doc.addImage(img, "JPEG", startX, starty, newWidth, newHeight);
     doc.save("Setup Instructions.pdf");
   };
 
@@ -53,7 +131,7 @@ const Feed = () => {
   };
 
   return (
-    <div className="flow-root">
+    <div className="">
       <ul role="list" className="">
         <FeedItem
           index={1}
@@ -96,34 +174,32 @@ const Feed = () => {
             >
               <SeedPhraseToBraille seedPhrase={seedPhrase} />
             </FeedItem>
-            <FeedItem
-              index={5}
-              ctaButtonText={"Download PDF"}
-              sectionTitle="Collated Instructions"
-              onClick={() => generateImage()}
-            >
-              <div id="seedPhrase" className="flex bg-white text-black">
-                <div className="i mx-2 flex grid grid-cols-2 gap-x-4 gap-y-4 object-center md:mx-10 ">
-                  {seedPhrase.length > 0 &&
-                    seedPhrase.split(" ").map((item, idx) => {
-                      return (
-                        <SeedPhraseWord
-                          index={idx}
-                          key={idx}
-                          word={item}
-                          wordlist={wordlist as string[]}
-                        />
-                      );
-                    })}
-                </div>
-                <div className="flex flex-col justify-between">
-                  <div>
-                    <h1>Seed Phrase</h1>
-                    <QRCode value={seedPhrase} />
-                  </div>
-                </div>
-              </div>
-            </FeedItem>
+            <div className="hidden md:block">
+              <FeedItem
+                index={5}
+                ctaButtonText={"Download PDF"}
+                sectionTitle="Collated Instructions"
+                onClick={() => generateImage()}
+              >
+                <DesktopWalletPDF
+                  seedPhrase={seedPhrase}
+                  wordlist={wordlist as string[]}
+                />
+              </FeedItem>
+            </div>
+            <div className="block md:hidden">
+              <FeedItem
+                index={5}
+                ctaButtonText={"Download PDF"}
+                sectionTitle="Collated Instructions"
+                onClick={() => generateMobileImage()}
+              >
+                <MobileWalletPdf
+                  seedPhrase={seedPhrase}
+                  wordlist={wordlist as string[]}
+                />
+              </FeedItem>
+            </div>
           </>
         ) : null}
       </ul>

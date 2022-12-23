@@ -41,7 +41,7 @@ const FeedItem = ({
           </div>
         </div>
       </div>
-      <div className="px-10 pt-4">{children}</div>
+      <div className="pt-4 md:px-10">{children}</div>
     </li>
   );
 };

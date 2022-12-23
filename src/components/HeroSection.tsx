@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const HeroSection = () => {
   return (
     <div className="relative">
@@ -14,21 +16,12 @@ const HeroSection = () => {
               Generate unlimited self-custodial wallets with a single click -
               Offline and Online
             </p>
-            <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center">
-              <div className="space-y-4 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5 sm:space-y-0">
-                <a
-                  href="#"
-                  className="flex items-center justify-center px-4 py-3 text-base font-medium text-indigo-700 sm:px-8"
-                >
-                  Get started
-                </a>
-                <a
-                  href="#"
-                  className="flex items-center justify-center rounded-md border border-transparent bg-indigo-500 bg-opacity-60 px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-opacity-70 sm:px-8"
-                >
-                  Start Your Free Trial
-                </a>
-              </div>
+            <div className="flex items-center justify-center">
+              <Link href="/app">
+                <p className="mt-4 rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                  Get Started Today
+                </p>
+              </Link>
             </div>
           </div>
         </div>
