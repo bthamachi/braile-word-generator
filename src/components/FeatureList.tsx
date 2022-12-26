@@ -11,7 +11,7 @@ const features = [
   {
     name: "Privacy by Default",
     description:
-      "We don't store any identifying information - only an anonymous email of your choice",
+      "We don't store any identifying information. Honestly, we don't even track the number of users to this site at this point",
     icon: CloudArrowUpIcon,
   },
   {
@@ -22,7 +22,7 @@ const features = [
   },
   {
     name: "Unlimited Uses",
-    description: "Generate as many wallets as you'd like with a single license",
+    description: "Generate as many wallets as you'd like ... for free",
     icon: ArrowPathIcon,
   },
   {
@@ -47,7 +47,7 @@ const features = [
 
 const FeatureList = () => {
   return (
-    <div className="relative bg-white py-16 sm:py-24 lg:py-32">
+    <div id="features" className="relative bg-white py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 className="text-lg font-semibold text-cyan-600">Our Features</h2>
         <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">

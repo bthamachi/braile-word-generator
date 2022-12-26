@@ -8,7 +8,7 @@ import { Fragment } from "react";
 const options = [
   {
     name: "Features",
-    link: "#Features",
+    link: "/#features",
   },
   {
     name: "Blog",

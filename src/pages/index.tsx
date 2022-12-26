@@ -23,7 +23,8 @@ export default function Example() {
               <span className="block underline lg:inline">no hidden fees</span>
             </h1>
             <p className="mt-4 text-xl text-gray-600">
-              A single one-time payment to generate as many wallets as you need.
+              The entire application itself is free to use - all we ask is that
+              you give us a small shoutout if you like what we built.
             </p>
           </div>
         </main>
