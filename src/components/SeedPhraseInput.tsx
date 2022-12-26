@@ -13,12 +13,6 @@ const SeedPhraseInput = ({
 }: SeedPhraseInputProps) => {
   return (
     <div>
-      <label
-        htmlFor="Seed Phrase Input"
-        className="block text-sm font-medium text-gray-700"
-      >
-        Seed Phrase
-      </label>
       <div className="relative mt-1 rounded-md shadow-sm">
         <input
           value={seedPhrase}
@@ -26,7 +20,7 @@ const SeedPhraseInput = ({
           type="text"
           name="seedPhrase"
           id="seedPhraseInput"
-          className="block w-full rounded-md border-red-300 pr-10 text-red-900 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500 sm:text-sm"
+          className="block w-full rounded-md  pr-10  focus:outline-none sm:text-sm"
           placeholder="Seed Phrase"
           defaultValue=""
           aria-invalid="true"
