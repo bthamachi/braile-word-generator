@@ -20,7 +20,7 @@ const Feed = () => {
   const [ethWallet, setEthWallet] = useState<ethers.Wallet>();
   const [btcWallet, setBtcWallet] = useState<BIP32Interface>();
   const [userProvidingSeedPhrase, setUserProvidingSeedPhrase] =
-    useState<boolean>(false);
+    useState<boolean>(true);
   const [error, setError] = useState("");
 
   const [generatingSeedPhrase, setGeneratingSeedPhrase] = useState(false);
@@ -31,27 +31,28 @@ const Feed = () => {
     if (!validateSeedPhrase(seedPhrase)) {
       setError("Invalid Seed Phrase entered");
       toast.warning("Please input a valid seed phrase");
+      setGeneratingSeedPhrase(false);
       return;
-    }
+    } else {
+      try {
+        const newBtcWallet = generateBtcWallet(seedPhrase);
+        const newEthWallet = ethers.Wallet.fromMnemonic(seedPhrase);
 
-    try {
-      const newBtcWallet = generateBtcWallet(seedPhrase);
-      const newEthWallet = ethers.Wallet.fromMnemonic(seedPhrase);
+        setEthWallet(newEthWallet);
+        setBtcWallet(newBtcWallet);
+        setSeedPhrase(seedPhrase);
 
-      setEthWallet(newEthWallet);
-      setBtcWallet(newBtcWallet);
-      setSeedPhrase(seedPhrase);
-
-      setTimeout(() => {
-        setGeneratingSeedPhrase(false);
-        navigator.clipboard.writeText(seedPhrase).then(() => {
-          toast.success("Mnemonic copied to clipboard");
-        });
-      }, 1500);
-    } catch {
-      setError("Invalid Seed Phrase entered");
-      toast.warning("Please input a valid seed phrase");
-      return;
+        setTimeout(() => {
+          setGeneratingSeedPhrase(false);
+          navigator.clipboard.writeText(seedPhrase).then(() => {
+            toast.success("Mnemonic copied to clipboard");
+          });
+        }, 1500);
+      } catch {
+        setError("Invalid Seed Phrase entered");
+        toast.warning("Please input a valid seed phrase");
+        return;
+      }
     }
   };
 
@@ -80,8 +81,6 @@ const Feed = () => {
     setSeedPhrase("");
   }, [userProvidingSeedPhrase]);
 
-  console.log(ethWallet, btcWallet, seedPhrase);
-
   return (
     <div className="">
       <SwitchToggle
@@ -109,11 +108,9 @@ const Feed = () => {
                 </p>
               </div>
             )}
-            {generatingSeedPhrase ? (
-              <div className="flex w-screen items-center justify-center">
-                <ClipLoader />
-              </div>
-            ) : null}
+            <div className="mt-10 flex items-center justify-center">
+              {generatingSeedPhrase ? <ClipLoader /> : null}
+            </div>
           </FeedItem>
         ) : (
           <FeedItem
@@ -123,6 +120,7 @@ const Feed = () => {
             sectionTitle={"Generate Wallet Mnemonic"}
           >
             <div className="mb-10 flex items-center justify-center">
+              {generatingSeedPhrase ? <ClipLoader /> : null}
               {seedPhrase.length > 0 && !generatingSeedPhrase ? (
                 <div className="text-left">
                   <p className="text-md text-gray-500">
@@ -132,12 +130,6 @@ const Feed = () => {
                 </div>
               ) : null}
             </div>
-
-            {generatingSeedPhrase ? (
-              <div className="mt-4 flex w-screen items-center justify-center">
-                <ClipLoader />
-              </div>
-            ) : null}
           </FeedItem>
         )}
         <MnemonicDetails
