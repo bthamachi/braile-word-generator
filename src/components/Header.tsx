@@ -42,13 +42,13 @@ const Header = () => {
           <Popover.Group as="nav" className="hidden space-x-10 md:flex">
             {options.map((item) => {
               return (
-                <a
+                <Link
                   key={item.link}
                   href={item.link}
                   className="text-base font-medium text-gray-500 hover:text-gray-900"
                 >
                   {item.name}
-                </a>
+                </Link>
               );
             })}
           </Popover.Group>
@@ -92,7 +92,7 @@ const Header = () => {
                 <div className="mt-6">
                   <nav className="grid grid-cols-1 gap-7">
                     {options.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.link}
                         className="-m-3 flex items-center rounded-lg p-3 hover:bg-gray-50"
@@ -100,7 +100,7 @@ const Header = () => {
                         <div className="ml-4 text-base font-medium text-gray-900">
                           {item.name}
                         </div>
-                      </a>
+                      </Link>
                     ))}
                   </nav>
                 </div>

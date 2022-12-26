@@ -7,7 +7,7 @@ import "../styles/globals.css";
 const MyApp: AppType = ({ Component, pageProps }) => {
   const initialUnlockStatus =
     process.env.NODE_ENV === "development" ? true : false;
-  const [unlocked, setUnlocked] = useState(initialUnlockStatus);
+  const [unlocked, setUnlocked] = useState(false);
   const [password, setPassword] = useState("");
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
