@@ -7,8 +7,6 @@ export const generateMobileImage = async () => {
   const height = doc.internal.pageSize.getHeight();
   const width = doc.internal.pageSize.getWidth();
 
-  console.log(height, width);
-
   const secretPhraseColumnElement = document.getElementById("braille")!;
   const secretPhraseImage = await htmlToImage.toJpeg(
     secretPhraseColumnElement,

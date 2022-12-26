@@ -14,7 +14,7 @@ const SeedPhraseInput = ({
   return (
     <div>
       <label
-        htmlFor="email"
+        htmlFor="Seed Phrase Input"
         className="block text-sm font-medium text-gray-700"
       >
         Seed Phrase
@@ -25,7 +25,7 @@ const SeedPhraseInput = ({
           onChange={(e) => setSeedPhrase(e.target.value)}
           type="text"
           name="seedPhrase"
-          id="seedPhrase"
+          id="seedPhraseInput"
           className="block w-full rounded-md border-red-300 pr-10 text-red-900 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500 sm:text-sm"
           placeholder="Seed Phrase"
           defaultValue=""
