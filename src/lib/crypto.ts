@@ -16,3 +16,16 @@ export const generateBtcWallet = (seedPhrase: string) => {
 
   return node;
 };
+
+export const validateSeedPhrase = (phrase: string) => {
+  const words = phrase.trim().split(" ");
+  if (words.length !== 12) {
+    return false;
+  }
+  for (let i = 0; i < 12; i++) {
+    if (!ethers.wordlists.en?.getWordIndex(words[i] as string)) {
+      return false;
+    }
+  }
+  return true;
+};
