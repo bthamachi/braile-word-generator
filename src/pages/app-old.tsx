@@ -90,14 +90,7 @@ const Home: NextPage = () => {
         <div className="i mx-2 flex grid grid-cols-2 gap-x-4 gap-y-4 object-center md:mx-10 ">
           {seedPhrase.length > 0 &&
             seedPhrase.split(" ").map((item, idx) => {
-              return (
-                <SeedPhraseWord
-                  index={idx}
-                  key={idx}
-                  word={item}
-                  wordlist={wordlist as string[]}
-                />
-              );
+              return <SeedPhraseWord index={idx} key={idx} word={item} />;
             })}
         </div>
         <div className="flex flex-col justify-between">
