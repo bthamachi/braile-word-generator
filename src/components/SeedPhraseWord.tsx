@@ -3,13 +3,13 @@ import SeedPhraseWordBraile from "./SeedPhraseWordBraile";
 
 type SeedPhraseWordProps = {
   word: string;
-  wordlist: string[];
   index: number;
 };
 
-const SeedPhraseWord = ({ word, wordlist, index }: SeedPhraseWordProps) => {
+const SeedPhraseWord = ({ word, index }: SeedPhraseWordProps) => {
   const idx = (ethers.wordlists.en?.getWordIndex(word) as number) + 1;
   const paddedIdx = idx.toString().padStart(4, "0");
+
   return (
     <div>
       <div className="grid grid-cols-4 border">

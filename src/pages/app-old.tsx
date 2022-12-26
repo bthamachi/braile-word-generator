@@ -56,34 +56,7 @@ const Home: NextPage = () => {
   const wordlist = wordlists[getDefaultWordlist()];
 
   const generatePDF = () => {
-    // doc.setFontSize(6);
-    // doc.addImage(bg.src, "JPEG", 0, 0, 13, 18);
-
-    // const words = seedPhrase.split(" ");
-    // console.log(words);
-    // words.map((item, idx) => {
-    //   const offset = 1.8 + 2.55 * (idx % 4);
-    //   const yCoord = 3 + 2.1 * Math.floor(idx / 4);
-    //   console.log(offset, yCoord);
-    //   doc.text(item, offset + 0.4, yCoord);
-    //   // Then we fill in the numbers
-    //   const wordIdx = (ethers.wordlists.en?.getWordIndex(item) as number) + 1;
-    //   // Add Later
-    //   const paddedIdx = wordIdx.toString().padStart(4, "0");
-
-    //   paddedIdx.split("").map((item, paddedNumberIdx) => {
-    //     console.log("----Coordinates");
-    //     console.log(offset + paddedNumberIdx * 0.52, yCoord + 0.5);
-    //     doc.text(item, offset + paddedNumberIdx * 0.52, yCoord + 0.5);
-    //   });
-
-    //   console.log("----");
-    // });
-
-    // // var svgAsText = new XMLSerializer().serializeToString(One);
-    // // doc.addSvgAsImage(svgAsText, 2.1, 4, 0.5, 0.5);
     console.log("---pass typecheck");
-    // doc.save("test2.pdf");
   };
 
   return (

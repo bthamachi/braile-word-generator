@@ -3,10 +3,9 @@ import SeedPhraseWord from "./SeedPhraseWord";
 
 type DesktopWalletPDFProps = {
   seedPhrase: string;
-  wordlist: string[];
 };
 
-const DesktopWalletPDF = ({ seedPhrase, wordlist }: DesktopWalletPDFProps) => {
+const DesktopWalletPDF = ({ seedPhrase }: DesktopWalletPDFProps) => {
   return (
     <div
       id="seedPhrase"
@@ -15,14 +14,7 @@ const DesktopWalletPDF = ({ seedPhrase, wordlist }: DesktopWalletPDFProps) => {
       <div className="col-span-2 mx-2 flex grid grid-cols-2 gap-x-4 gap-y-4 bg-white text-black md:mx-10 ">
         {seedPhrase.length > 0 &&
           seedPhrase.split(" ").map((item, idx) => {
-            return (
-              <SeedPhraseWord
-                index={idx}
-                key={idx}
-                word={item}
-                wordlist={wordlist}
-              />
-            );
+            return <SeedPhraseWord index={idx} key={idx} word={item} />;
           })}
       </div>
       <div className="bg-white text-black">
