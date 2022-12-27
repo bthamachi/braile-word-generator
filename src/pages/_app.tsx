@@ -2,6 +2,7 @@ import type { AppType } from "next/dist/shared/lib/utils";
 import { ChangeEvent, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Metadata from "../components/Metadata";
 import "../styles/globals.css";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
@@ -31,6 +32,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   }
   return (
     <>
+      <Metadata />
       <ToastContainer
         position="top-right"
         autoClose={2000}

@@ -1,10 +1,16 @@
 import Feed from "../components/Feed";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import Metadata from "../components/Metadata";
+import { WEBSITE_NAME } from "../constants/seo";
 
 const App = () => {
   return (
     <>
+      <Metadata
+        title={`Generate unlimited self-custodial wallets today at ${WEBSITE_NAME}`}
+        description={`Generate unlimited self-custodial wallets today at ${WEBSITE_NAME}`}
+      />
       <Header />
       <div className="mx-auto mt-20 max-w-3xl lg:max-w-5xl">
         <div className="px-4">
