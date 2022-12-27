@@ -1,0 +1,17 @@
+import Layout from "../../components/Layout";
+
+export const meta = {
+  author: "Bow Tied Hamachi",
+  date: "2022-10-06",
+  title: "Interacting with the blockchain",
+  description:
+    "Connecting our frontend to the smart contract we deployed on goerli.",
+};
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+## Introduction
+
+> This article is a continuation of the previous article on deploying a smart contract on the goerli testnet. If you haven't read it yet, you can check it out [here](https://www.bowtiedhamachi.com/articles/my-first-solidity-contract)
+
+In this article, we'll be building out a frontend that interacts nicely with the smart contract that we've deployed on the goerli testnet. We'll be making use of the `web3Modal` library and `ethers` library to interface with the goerli chain.

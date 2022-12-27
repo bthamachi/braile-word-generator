@@ -107,18 +107,11 @@ const Header = () => {
               </div>
               <div className="py-6 px-5">
                 <div className="mt-6">
-                  <Link
-                    href="/app"
-                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 text-base font-medium text-white shadow-sm hover:from-purple-700 hover:to-indigo-700"
-                  >
-                    Start Your Free Trial Today
+                  <Link href="/app">
+                    <span className="flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 text-base font-medium text-white shadow-sm hover:from-purple-700 hover:to-indigo-700">
+                      Go to App
+                    </span>
                   </Link>
-                  <p className="mt-6 text-center text-base font-medium text-gray-500">
-                    Existing customer?
-                    <a href="#" className="mx-2 text-gray-900">
-                      Sign in
-                    </a>
-                  </p>
                 </div>
               </div>
             </div>
